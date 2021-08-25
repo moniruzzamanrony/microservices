@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: clpod-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/moniruzzamanrony/spring-cloud-config-ymls.git
+          username: moniruzzamanrony
+          password: ITvillage428854@#
+
+server:
+  port: 8888
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

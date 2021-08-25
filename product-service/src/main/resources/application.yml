@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: product-service
+  profiles:
+    active: ${spring.cloud.config.profile}
+  datasource:
+    url: ${spring.datasource.url}
+    username: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+  jpa:
+    hibernate:
+      ddl-auto: ${spring.jpa.hibernate.ddl-auto}
+      naming-strategy: ${spring.jpa.hibernate.naming-strategy}
+    properties:
+      hibernate:
+        dialect: ${spring.jpa.properties.hibernate.dialect}
+    show-sql: true
+server:
+  port: 8200
+  servlet:
+    context-path: /product
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+app:
+  mgs: ${spring.datasource.url}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+    preferIpAddress: true
+
